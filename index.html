@@ -4,45 +4,54 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Badhusha Shaji</title>
+    <meta name="description" content="Badhusha Shaji - Frontend Developer, IoT Developer, and AI Enthusiast. Building innovative tech solutions with Vue.js, Nuxt.js, and Node.js." />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Badhusha Shaji | Frontend & IoT Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaqueries.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   </head>
   <body>
     <div id="preloader">
-        <div class="loader"></div>
+        <div class="loader-wrapper">
+            <div class="loader"></div>
+            <span class="loader-text">Loading</span>
+        </div>
     </div>
     <nav id="desktop-nav">
-      <div class="logo animate-onload">Badhusha Shaji</div>
-      <div>
-        <ul class="nav-links">
-          <li class="animate-onload"><a href="#about">About</a></li>
-          <li class="animate-onload"><a href="#experience">Experience</a></li>
-          <li class="animate-onload"><a href="#projects">Projects</a></li>
-          <li class="animate-onload"><a href="#contact">Contact</a></li>
-        </ul>
+      <div class="nav-container">
+        <div class="logo animate-onload">Badhusha<span class="logo-dot">.</span></div>
+        <div>
+          <ul class="nav-links">
+            <li class="animate-onload"><a href="#about" class="nav-link">About</a></li>
+            <li class="animate-onload"><a href="#experience" class="nav-link">Experience</a></li>
+            <li class="animate-onload"><a href="#projects" class="nav-link">Projects</a></li>
+            <li class="animate-onload"><a href="#contact" class="nav-link nav-link-cta">Contact</a></li>
+          </ul>
+        </div>
       </div>
     </nav>
     <nav id="hamburger-nav">
-      <div class="logo animate-onload">Badhusha Shaji</div>
-      <div class="hamburger-menu">
-        <div class="hamburger-icon" onclick="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div class="menu-links">
-          <li><a href="#about" onclick="toggleMenu()">About</a></li>
-          <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
-          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+      <div class="nav-container">
+        <div class="logo animate-onload">Badhusha<span class="logo-dot">.</span></div>
+        <div class="hamburger-menu">
+          <button class="hamburger-icon" onclick="toggleMenu()" aria-label="Toggle menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <div class="menu-links">
+            <li><a href="#about" onclick="toggleMenu()">About</a></li>
+            <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
+            <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+            <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+          </div>
         </div>
       </div>
-      <!-- aaaaa -->
     </nav>
     <section id="profile" class="">
       <div class="section__pic-container animate-onload">
@@ -56,7 +65,9 @@
             <style>
                 .typed-text::after {
                     content: '|';
-                    animation: blink 1s infinite;
+                    animation: blink 0.8s infinite;
+                    color: var(--accent-gray, #555);
+                    font-weight: 300;
                 }
                 @keyframes blink {
                     0%, 100% { opacity: 1; }
@@ -102,34 +113,34 @@
                 document.addEventListener('DOMContentLoaded', typeText);
             </script>
         </p>
-        <div class="btn-container">
+        <div class="btn-container animate-onload">
           <button
             class="btn btn-color-2"
             onclick="window.open('./assets/resume-example.pdf')"
+            aria-label="Download CV"
           >
+            <i class="fas fa-download btn-icon"></i>
             Download CV
           </button>
-          <button class="btn btn-color-1" onclick="location.href='./#contact'">
-            Contact Info
+          <button class="btn btn-color-1" onclick="location.href='./#contact'" aria-label="View contact information">
+            <i class="fas fa-envelope btn-icon"></i>
+            Let's Talk
           </button>
         </div>
-        <div id="socials-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="My LinkedIn profile"
-            class="icon"
-            onclick="location.href='https://www.linkedin.com/in/badhushashaji/'"
-          />
-          <img
-            src="./assets/github.png"
-            alt="My Github profile"
-            class="icon"
-            onclick="location.href='https://github.com/badhusha3214'"
-          />
+        <div id="socials-container" class="animate-onload">
+          <a href="https://www.linkedin.com/in/badhushashaji/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn Profile">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com/badhusha3214" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub Profile">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://instagram.com/_badhu_._sha_" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram Profile">
+            <i class="fab fa-instagram"></i>
+          </a>
         </div>
       </div>
     </section>
-    <section id="about"  >
+    <section id="about">
       <p class="section__text__p1 reveal">Get To Know More</p>
       <h1 class="title reveal">About Me</h1>
       <div class="section-container">
@@ -143,27 +154,30 @@
         <div class="about-details-container">
           <div class="about-containers">
             <div class="details-container reveal">
-              <img
-                src="./assets/experience.png"
-                alt="Experience icon"
-                class="icon reveal"
-              />
+              <div class="detail-icon-wrapper">
+                <i class="fas fa-briefcase"></i>
+              </div>
               <h3>Experience</h3>
-              <p>2+ years <br />Frontend Development</p>
+              <p><strong>2+ years</strong><br />Frontend Development</p>
             </div>
             <div class="details-container reveal">
-              <img
-                src="./assets/education.png"
-                alt="Education icon"
-                class="icon reveal"
-              />
+              <div class="detail-icon-wrapper">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
               <h3>Education</h3>
-              <p>B.C.A<br /></p>
+              <p><strong>B.C.A</strong><br />Computer Applications</p>
+            </div>
+            <div class="details-container reveal">
+              <div class="detail-icon-wrapper">
+                <i class="fas fa-code"></i>
+              </div>
+              <h3>Projects</h3>
+              <p><strong>10+</strong><br />Completed Projects</p>
             </div>
           </div>
-          <div class="text-container reveal ">
+          <div class="text-container reveal">
             <p>
-              I am Badhusha Shaji, a web and IoT developer from Kerala, specializing in Vue.js, Nuxt.js, and Node.js, with a passion for building innovative tech solutions like IoT systems, social media platforms, etc. I actively contribute to tech communities through hands-on workshops, knowledge-sharing sessions, and impactful projects, blending creativity and technology to make a difference.
+              I am Badhusha Shaji, a web and IoT developer from Kerala, specializing in <strong>Vue.js</strong>, <strong>Nuxt.js</strong>, and <strong>Node.js</strong>, with a passion for building innovative tech solutions like IoT systems, social media platforms, etc. I actively contribute to tech communities through hands-on workshops, knowledge-sharing sessions, and impactful projects, blending creativity and technology to make a difference.
             </p>
           </div>
         </div>
@@ -488,51 +502,75 @@
       </div>
     </section>
     <section id="contact">
-      <p class="section__text__p1">Get in Touch</p>
-      <h1 class="title">Contact Me</h1>
-      <div class="contact-info-upper-container">
-        <div class="contact-info-container">
-          <img
-            src="./assets/email.png"
-            alt="Email icon"
-            class="icon contact-icon email-icon"
-          />
-          <p><a href="mailto:badhusha.shaji22@gmail.com">badhusha@gmail.com</a></p>
-        </div>
-        <div class="contact-info-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="LinkedIn icon"
-            class="icon contact-icon"
-          />
-          <p><a href="https://www.linkedin.com/badhushashaji">LinkedIn</a></p>
-        </div>
-        <div class="contact-info-container">
-          <i class="fab fa-whatsapp icon2 contact-icon"></i>
-          <p><a href="https://wa.me/+919947612321">WhatsApp</a></p>
-        </div>
-        <div class="contact-info-container">
-          <i class="fas fa-phone icon2 contact-icon"></i>
-          <p><a href="tel:+919947612321">Call Me</a></p>
-        </div>
-        <div class="contact-info-container">
-          <i class="fab fa-instagram icon2 contact-icon"></i>
-          <p><a href="https://instagram.com/_badhu_._sha_">Instagram</a></p>
-        </div>
+      <p class="section__text__p1 reveal">Get in Touch</p>
+      <h1 class="title reveal">Contact Me</h1>
+      <p class="contact-subtitle reveal">I'm currently available for freelance work and exciting opportunities. Let's build something great together!</p>
+      <div class="contact-info-upper-container reveal">
+        <a href="mailto:badhusha.shaji22@gmail.com" class="contact-card">
+          <div class="contact-card-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="contact-card-content">
+            <h4>Email</h4>
+            <p>badhusha.shaji22@gmail.com</p>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/in/badhushashaji" target="_blank" rel="noopener noreferrer" class="contact-card">
+          <div class="contact-card-icon">
+            <i class="fab fa-linkedin-in"></i>
+          </div>
+          <div class="contact-card-content">
+            <h4>LinkedIn</h4>
+            <p>Connect with me</p>
+          </div>
+        </a>
+        <a href="https://wa.me/+919947612321" target="_blank" rel="noopener noreferrer" class="contact-card">
+          <div class="contact-card-icon">
+            <i class="fab fa-whatsapp"></i>
+          </div>
+          <div class="contact-card-content">
+            <h4>WhatsApp</h4>
+            <p>Quick chat</p>
+          </div>
+        </a>
+        <a href="tel:+919947612321" class="contact-card">
+          <div class="contact-card-icon">
+            <i class="fas fa-phone"></i>
+          </div>
+          <div class="contact-card-content">
+            <h4>Phone</h4>
+            <p>+91 994 761 2321</p>
+          </div>
+        </a>
       </div>
     </section>
     <footer>
-      <nav>
-        <div class="nav-links-container">
-          <ul class="nav-links">
+      <div class="footer-content">
+        <div class="footer-logo">Badhusha<span class="logo-dot">.</span></div>
+        <nav>
+          <ul class="footer-links">
             <li><a href="#about">About</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
+        </nav>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/in/badhushashaji/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com/badhusha3214" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://instagram.com/_badhu_._sha_" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
         </div>
-      </nav>
-      <p>Copyright &#169; 2024 Badhusha Shaji. All Rights Reserved.</p>
+      </div>
+      <div class="footer-bottom">
+        <p>Made with <i class="fas fa-heart"></i> by Badhusha Shaji</p>
+        <p class="copyright">© 2024 All Rights Reserved</p>
+      </div>
     </footer>
     <div id="scroll-arrow" class="fixed-arrow">
       <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" />

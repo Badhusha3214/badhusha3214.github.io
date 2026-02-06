@@ -3,17 +3,36 @@ function toggleMenu() {
   const icon = document.querySelector(".hamburger-icon");
   menu.classList.toggle("open");
   icon.classList.toggle("open");
+  
+  // Update aria-expanded attribute for accessibility
+  const isOpen = menu.classList.contains("open");
+  icon.setAttribute("aria-expanded", isOpen);
 }
+
+// Close menu when clicking outside
+document.addEventListener('click', function(e) {
+  const hamburgerNav = document.querySelector('#hamburger-nav');
+  const menu = document.querySelector(".menu-links");
+  const icon = document.querySelector(".hamburger-icon");
+  
+  if (hamburgerNav && !hamburgerNav.contains(e.target) && menu.classList.contains('open')) {
+    menu.classList.remove("open");
+    icon.classList.remove("open");
+    icon.setAttribute("aria-expanded", "false");
+  }
+});
 
 // Add smooth scroll animation to sections
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const section = document.querySelector(this.getAttribute('href'));
-        section.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        });
+        if (section) {
+          section.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+          });
+        }
     });
 });
 
@@ -25,7 +44,7 @@ function reveal() {
     reveals.forEach(element => {
         const windowHeight = window.innerHeight;
         const elementTop = element.getBoundingClientRect().top;
-        const elementVisible = 150;
+        const elementVisible = 100;
         
         if (elementTop < windowHeight - elementVisible) {
             element.classList.add('active');
@@ -33,10 +52,39 @@ function reveal() {
     });
 }
 
+// Add active state to navigation based on scroll position
+function updateActiveNav() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    let current = '';
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (scrollY >= sectionTop - 150) {
+            current = section.getAttribute('id');
+        }
+    });
+    
+    navLinks.forEach(link => {
+        link.classList.remove('nav-active');
+        if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('nav-active');
+        }
+    });
+}
+
+window.addEventListener('scroll', updateActiveNav);
+
 // Onload Animations
 document.addEventListener('DOMContentLoaded', function() {
+    // Trigger reveal for elements in view
+    reveal();
+    
     // Animate navigation
-    document.querySelector('.logo').classList.add('slide-in-left');
+    const logo = document.querySelector('.logo');
+    if (logo) logo.classList.add('slide-in-left');
     
     const navLinks = document.querySelectorAll('.nav-links li');
     navLinks.forEach((link, index) => {
@@ -45,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Animate profile section
     const profilePic = document.querySelector('#profile .section__pic-container');
-    profilePic.classList.add('pop-in', 'delay-1');
+    if (profilePic) profilePic.classList.add('pop-in', 'delay-1');
 
     const profileText = document.querySelector('#profile .section__text');
     const profileElements = profileText.children;
